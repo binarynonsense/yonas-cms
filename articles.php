@@ -153,15 +153,5 @@ include_once("include/initarticles.inc.php");
 	</div> <!--  center -->
 
 </div> <!--  content -->
-<!-- Start of StatCounter Code -->
-<script type="text/javascript">
-var sc_project=3509105; 
-var sc_invisible=1; 
-var sc_partition=33; 
-var sc_security="1cd6b552"; 
-</script>
-
-<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/free_hit_counter.html"><img class="statcounter" src="http://c34.statcounter.com/3509105/0/1cd6b552/1/" alt="free hit counter" /></a></div></noscript>
-<!-- End of StatCounter Code -->
 </body>
 </html>
