@@ -1,7 +1,7 @@
 Yonas CMS
 =========
 
-Yonas CMS is a content management system (CMS) I made years ago, while learning PHP. This is a beta version I found lying around, I'll try to find the latest version I made and update the repository. In any case, I'm creating this repository mostly just for myself, the cms probably has bugs and security flaws and may not even work anymore, so it may not be a good choice to use it to run a public website.
+Yonas CMS is a content management system (CMS) I made years ago, while learning PHP. This is a beta version I found lying around, I'll try to find the latest version I made and update the repository. In any case, I'm creating this repository mostly just for myself, the cms probably has bugs and security flaws and may not even work anymore, so it's probably not a good choice to use it to run a public website.
 
 More info from the original "Readme":
 
