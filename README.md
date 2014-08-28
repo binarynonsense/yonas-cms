@@ -3,6 +3,10 @@ Yonas CMS
 
 Yonas CMS is a content management system (CMS) I made years ago, while learning PHP. This is a beta version I found lying around, I'll try to find the latest version I made and update the repository. In any case, I'm creating this repository mostly just for myself, the cms probably has bugs and security flaws and may not even work anymore, so it's probably not a good choice to use it to run a public website.
 
+Here's a video I made when I was using it showing the cms running :
+
+http://www.youtube.com/watch?v=JoVhgozh-Hw
+
 More info from the original "Readme":
 
 It's programmed using PHP 5, SQLite, Javascript and AJAX, which makes it portable and hopefully easy to install in a good number of servers.
