@@ -5,7 +5,7 @@ Yonas CMS is a content management system (CMS) I made years ago, while learning 
 
 Here's a video I made when I was using it showing the cms running :
 
-http://www.youtube.com/watch?v=JoVhgozh-Hw
+https://www.youtube.com/watch?v=nJu0Q-5-bjI
 
 More info from the original "Readme":
 
