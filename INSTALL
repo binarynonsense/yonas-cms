@@ -1,0 +1,28 @@
+This is a quick guide about the main points when installing the CMS
+I'll write a more complete document when I have more time, sorry.
+
+
+*INSTALL:
+-copy the contents of the zip files in the destination folder
+-change the file named paths.inc.php in the include folder so the paths correspond to the 
+ones in your installation.
+-you may need to change the permissions of some files or folders so the cms can write in the database 
+file (admin/yonas.db)
+
+*ADMINISTER:
+
+you can access the admin area from:
+yoursitelink/admin/
+deafult user: admin
+default password: yonas
+[WARNING] you should at least change the password as soon as possible
+
+*Customizing the top menu:
+
+you can do it changing the file named menu1.xml in the admin folder
+
+
+*creating a new database
+
+in case you want to modify the initial database or see how it was created you can
+use/see the file called createdb.php.bak in the admin folder

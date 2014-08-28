@@ -1,0 +1,177 @@
+<?php
+/********************************************************************  
+
+Yonas CMS
+Copyright (C) 2008 Alvaro Garcia Cuesta
+
+This file is part of Yonas CMS.
+
+Yonas CMS is free software; you can redistribute it and/or modify it 
+under the terms of the GNU General Public License version 2 as 
+published by the Free Software Foundation.
+
+Yonas CMS is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*********************************************************************/
+
+
+//-- TODO --
+//allow admins to select theme for each article/page?
+//index page option to point to blog,page,whatever
+
+// set path of database file
+$db = "yonas.db";
+
+// open database file
+$handle = sqlite_open($db) or die("Could not open database");
+
+// ************** CREATE DATABASE TABLES  *********************//
+
+
+// ARTICLES
+sqlite_query($handle, "CREATE TABLE articles (
+			ID INTEGER PRIMARY KEY,
+			authorID INTEGER NOT NULL, 
+			languageID INTEGER NOT NULL,
+			title VARCHAR(255) NOT NULL, 
+			subtitle VARCHAR(255),	
+			prelude TEXT,
+			text TEXT,
+			statusID INTEGER NOT NULL,
+			date INTEGER NOT NULL,
+			priority INTEGER NOT NULL DEFAULT '0')
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// PAGES
+sqlite_query($handle, "CREATE TABLE pages (
+			ID INTEGER PRIMARY KEY,
+			authorID INTEGER NOT NULL, 
+			languageID INTEGER NOT NULL,
+			title VARCHAR(255) NOT NULL, 
+			text TEXT,
+			statusID INTEGER NOT NULL,
+			date INTEGER NOT NULL,
+			priority INTEGER NOT NULL DEFAULT '0')
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// USERS
+sqlite_query($handle, "CREATE TABLE users (
+			ID INTEGER PRIMARY KEY,
+			username VARCHAR(255) NOT NULL,
+			hash VARCHAR(255) NOT NULL,
+			salt VARCHAR(255) NOT NULL,
+			name VARCHAR(255) NOT NULL, 
+			mail VARCHAR(255) NOT NULL, 
+			groupID INTEGER NOT NULL,
+			description TEXT)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// GROUPS
+sqlite_query($handle, "CREATE TABLE groups (
+			ID INTEGER PRIMARY KEY,
+			name VARCHAR(255) NOT NULL,
+			description TEXT)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// LANGUAGES
+sqlite_query($handle, "CREATE TABLE languages (
+			ID INTEGER PRIMARY KEY,
+			name VARCHAR(255) NOT NULL,
+			shortname VARCHAR(2) NOT NULL)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// CATEGORIES
+sqlite_query($handle, "CREATE TABLE categories (
+			ID INTEGER PRIMARY KEY,
+			parentID INTEGER NOT NULL DEFAULT '0',
+			languageID INTEGER NOT NULL,
+			name VARCHAR(255) NOT NULL,
+			description TEXT)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// ARTICLE-CATEGORY 
+sqlite_query($handle, "CREATE TABLE article_category (
+			articleID INTEGER NOT NULL,
+			categoryID INTEGER NOT NULL)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// STATUS
+sqlite_query($handle, "CREATE TABLE status (
+			ID INTEGER PRIMARY KEY,
+			value VARCHAR(255) NOT NULL)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// CONFIGURATION
+sqlite_query($handle, "CREATE TABLE configuration (
+			name VARCHAR(255) NOT NULL,
+			value VARCHAR(255) NOT NULL)
+") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// ************** POPULATE TABLES WITH DEFAULT DATA  *********************//
+
+
+// LANGUAGES
+//sqlite_query($handle, "INSERT INTO languages (name,shortname) VALUES ('Any','aa')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO languages (name,shortname) VALUES ('Any','all')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO languages (name,shortname) VALUES ('English','en')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO languages (name,shortname) VALUES ('Español','es')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// GROUPS
+sqlite_query($handle, "INSERT INTO groups (name) VALUES ('Administrator')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO groups (name) VALUES ('Editor')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO groups (name) VALUES ('Contributor')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// CATEGORIES
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Default',0,1)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Cosas',0,3)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Características',0,3)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Desarrollo',3,3)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Stuff',0,2)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Development',0,2)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO categories (name,parentID,languageID) VALUES ('Features',6,2)") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+
+// USERS
+sqlite_query($handle, "INSERT INTO users (username,hash,salt,name,mail,groupID) VALUES ('admin','484a5d92a1d984a344ae6f0ab943b9767166edfe','e5efa1926a','Admin','email','1')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// STATUS
+sqlite_query($handle, "INSERT INTO status (value) VALUES ('draft')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO status (value) VALUES ('published')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// ARTICLES
+$text="Welcome to Yonas CMS\n Hope you find it useful\n Álvaro";
+sqlite_query($handle, "INSERT INTO articles (authorID,languageID,title,subtitle,prelude,text,statusID,date) VALUES ('1','2','Welcome',NULL,NULL,'$text','2', '20080114122022')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+
+// ARTICLE_CATEGORY
+sqlite_query($handle, "INSERT INTO article_category (articleID,categoryID) VALUES ('1','1')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+
+// CONFIGURATION
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('cache','on')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('theme','default')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('show','5')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('showlanguages','0')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('title','Yonas CMS')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('keywords','yonas, cms')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+sqlite_query($handle, "INSERT INTO configuration (name,value) VALUES ('description','Yonas CMS is an opens source php and sqlite based content manager system created by Alvaro García Cuesta')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+// PAGES
+$text="Some text about you or your site.";
+sqlite_query($handle, "INSERT INTO pages (authorID,languageID,title,text,statusID,date) VALUES ('1','2','About','$text','2', '20080114122022')") or die("Error in query: ".sqlite_error_string(sqlite_last_error($handle)));
+
+
+// print success message
+echo "<i>Database successfully initialized!";
+
+// all done
+// close database file
+sqlite_close($handle);
+
+?> 

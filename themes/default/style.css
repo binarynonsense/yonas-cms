@@ -1,0 +1,245 @@
+/*
+CSS style for Yonas CMS Public Area
+Author: Alvaro Garcia Cuesta -  www.binarynonsense.com
+Version: 0.0
+*/
+
+body{
+margin:0;
+background-color: #fff;
+font-family: Arial, sans-serif;
+}
+
+h1{
+
+}
+
+h2{
+
+}
+
+a{
+font-size:15px;
+color: #C72D2E;
+background-color: transparent;
+text-decoration:none;
+border:0px;
+}
+a:hover{
+color: #000;
+}
+
+#header {
+height:33px;
+width:100%;
+background-color: #171516;
+background: #171516 url('title.jpg') no-repeat;
+color:#fff;
+font-family: Helvetica, Arial, sans-serif;
+font-weight:bold;
+font-size:25px;
+padding-left:20px;
+padding-top:5px;
+}
+
+#menu {
+height:25px;
+width:100%;
+background-color: #C72D2E;
+border-bottom: 2px solid #fff;
+padding-top:7px;
+padding-bottom:3px;
+padding-left:13px;
+}
+/* IE6 Only */
+* html #menu {
+height:25px;
+}
+#menu a{
+margin-left:10px;
+text-decoration:none;
+font-size:15px;
+font-family: Arial, sans-serif;
+color: #fff;
+background-color: transparent;
+}
+#menu a:hover{
+color: #000;
+}
+
+#center{
+width:100%;
+height:90px;
+background: #fff url('oblicuas50.jpg') repeat-x;
+margin:0;
+}
+
+
+#left{
+background-color: transparent;
+position: absolute; top: 85px; left: 10px;
+width:550px;
+padding-top:30px;
+padding-left:0px;
+margin:0;
+margin-left:10px;
+font-size:16px;
+color: #757578;
+font-family: Helvetica, Arial, sans-serif;
+}
+
+#left p{
+text-align:justify;
+margin-left:15px;
+}
+
+.posttitle{
+color: #C72D2E;
+font-family: Arial, sans-serif;
+font-weight:bold;
+font-size:19px;
+margin:0px;
+}
+.posttitle a{
+color: #C72D2E;
+font-family: Arial, sans-serif;
+font-weight:bold;
+font-size:19px;
+margin:0px;
+}
+
+.text{
+margin-left:0px;
+margin-top:8px;
+margin-bottom:8px;
+line-height: 1.4;
+text-align:justify;
+}
+.text a{
+font-size:16px;
+}
+
+.date{
+margin-left:0px;
+margin-top:6px;
+margin-bottom:8px;
+padding:0;
+color: #939398;
+font-family: Courier;
+font-size:12px;
+}
+
+.more{
+font-size:12px;
+font-family: Courier;
+}
+
+#footer{
+width:100%;
+font-size:12px;
+color: #B6B1B1;
+font-family: Helvetica, Arial, sans-serif;
+border-top: 1px solid #B1B2B8;
+background-color:#F3F4F6;
+margin-top:30px;
+margin-bottom:5px;
+text-align:center;
+height:30px;
+}
+#footer a{
+font-size:12px;
+color: #000;
+}
+#footer a:hover{
+color: #f00;
+}
+#footer p{
+text-align:center;
+}
+/* IE6 Only */
+* html #footer p {
+margin-top:10px;
+}
+
+
+#verticalmenu{
+margin-top:10px;
+position: absolute; top: 105px; left: 620px;
+width:300px;
+height:600px;
+background-color: transparent;
+font-weight:bold;
+font-size:15px;
+color: #000;
+font-family: Helvetica, Arial, sans-serif;
+}
+#verticalmenu a{
+margin:0;
+margin-left:15px;
+font-size:15px;
+color: #C72D2E;
+font-weight:normal;
+text-decoration:none;
+/*background: transparent url('bullet.gif') no-repeat;
+padding-left:18px;*/
+}
+#verticalmenu a:hover{
+color: #000;
+font-weight:bold;
+}
+#verticalmenu p{
+margin-top:10px;
+margin-bottom:15px;
+margin-left:10px;
+}
+#verticalmenu ul{
+list-style-type: none;
+margin: 0;
+padding: 0;
+/*margin-bottom: 8px;  bottom spacing between each UL and rest of content*/
+padding-left:15px;
+margin-top: 5px;
+line-height:1.4;
+}
+#verticalmenu ul li{
+padding-bottom: 2px; /*bottom spacing between menu items*/
+margin-bottom: 5px;
+}
+#verticalmenu ul li a{
+background: url(bullet.gif) no-repeat center left; /*custom bullet list image*/
+/*display: block;*/
+padding: 2px 0;
+padding-left: 19px; /*link text is indented 19px*/
+text-decoration: none;
+margin-bottom: 5px;
+/*border-bottom: 1px solid #dadada;*/
+}
+
+#flags{
+margin-left:30px;
+margin-top:15px;
+padding:0;
+margin-bottom:10px;
+}
+#flags p{
+margin:0;
+padding:0;
+}
+#flags a,img{
+border:0px;
+margin:0;
+padding:0;
+margin-right:2px;
+}
+
+#rss{
+margin-left:40px;
+margin-top:20px;
+padding:0;
+}
+#rss a,img{
+border:0px;
+margin:0;
+padding:0;
+margin-right:2px;
+}

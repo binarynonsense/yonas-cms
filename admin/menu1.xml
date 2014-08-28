@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<menu>
+	<option language="default">
+		<item>
+			<type>page</type>
+			<id>1</id>
+		</item>
+	</option>
+</menu>

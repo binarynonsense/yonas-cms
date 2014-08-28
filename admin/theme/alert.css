@@ -1,0 +1,71 @@
+body {
+	text-align:center;
+	background-color:#fff;
+	color:#96A5BB;
+	margin:80px 0px; 
+	padding:0px;	
+}
+
+h1 {
+	text-align:center;
+	color:#DFE3E8;
+	font:40px Arial;
+	margin:0;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+h2 {
+	color:#333;
+	font:20px Georgia, "Times New Roman", Times, serif;
+	font-weight:500;
+	font-style:italic;
+}
+
+h3 { /* ERROR MESSAGE*/	
+	color:#EF2524;
+	font:20px Georgia, "Times New Roman", Times, serif;
+	font-weight:500;
+	font-style:italic;
+}
+
+p {
+	line-height:1.8;
+	margin:0 0 1em;
+}
+
+a {
+	color:#09c;
+	text-decoration:none;
+	font-weight:600;
+}
+a:link {color:#6E82A1;}
+a:visited {color:#07a;}
+a:hover {color:#000;}
+	
+#content {
+	text-align:left;
+	margin:0px auto;
+	width:400px;	 
+	padding:20px;
+	border:1px solid #DFE3E8;
+	background-color:#F0F5FC;
+}
+	
+
+
+.formbutton{
+cursor:pointer;
+border:solid 2px #ccc;
+background:#fff;
+color:#666;
+font-weight:bold;
+padding: 2px 8px;
+margin-left:8px;
+font-size:14;
+height:35px;
+}
+.formbutton:hover {
+color:#fff;
+background:#666;
+}
